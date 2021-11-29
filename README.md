@@ -26,6 +26,10 @@ Ask Neon any question you would like to learn the answer to, such as `where were
 
 Use the [link](https://neongecko.com/ContactUs) or [submit an issue on GitHub](https://help.github.com/en/articles/creating-an-issue)
 
+## Category
+**Configuration**
+Entertainment
+
 ## Credits
 [Mycroft AI](https://github.com/MycroftAI)
 [NeonDaniel](https://github.com/NeonDaniel)
