@@ -55,12 +55,12 @@ from neon_utils.skills.neon_skill import NeonSkill, LOG
 try:
     import tkinter as tk
     import tkinter.simpledialog as dialog_box
-except ModuleNotFoundError:
+except ImportError:
     pass
 
 try:
     from NGI.utilities.utilHelper import LookupHelpers as password
-except ModuleNotFoundError:
+except ImportError:
     password = None
 
 __author__ = 'reginaneon'
