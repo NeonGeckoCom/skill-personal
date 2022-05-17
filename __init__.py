@@ -34,11 +34,26 @@ from mycroft.skills import intent_file_handler
 class PersonalSkill(NeonSkill):
     def __init__(self):
         super().__init__(name="PersonalSkill")
-        self.year_born = "2015"
-        self.name = "Neon AI"
-        self.birthplace = "Seattle, Washington"
-        self.creator = "Neon Gecko dot com Inc"
-        self.email = "developers@neon.ai"
+
+    @property
+    def year_born(self):
+        return self.settings.get("year_born") or "2015"
+
+    @property
+    def name(self):
+        return self.settings.get("name") or "Neon AI"
+
+    @property
+    def birthplace(self):
+        return self.settings.get("birthplace") or "Seattle, Washington"
+
+    @property
+    def creator(self):
+        return self.settings.get("creator") or "Neon Gecko dot com Inc"
+
+    @property
+    def email(self):
+        return self.settings.get("email") or "developers@neon.ai"
 
     @intent_file_handler("WhenWereYouBorn.intent")
     def handle_when_were_you_born(self, message):
