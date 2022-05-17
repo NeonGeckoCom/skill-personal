@@ -74,6 +74,11 @@ class TestSkill(unittest.TestCase):
         from neon_utils.skills.neon_skill import NeonSkill
 
         self.assertIsInstance(self.skill, NeonSkill)
+        self.assertIsInstance(self.skill.year_born, str)
+        self.assertIsInstance(self.skill.ai_name, str)
+        self.assertIsInstance(self.skill.birthplace, str)
+        self.assertIsInstance(self.skill.creator, str)
+        self.assertIsInstance(self.skill.email, str)
 
     def test_when_were_you_born(self):
         self.skill.handle_when_were_you_born(self.test_message)
@@ -93,17 +98,17 @@ class TestSkill(unittest.TestCase):
     def test_who_are_you(self):
         self.skill.handle_who_are_you(self.test_message)
         self.skill.speak_dialog.assert_called_once_with(
-            "who_am_i", {"name": self.skill.name})
+            "who_am_i", {"name": self.skill.ai_name})
 
         self.skill.handle_who_are_you(self.test_message)
         self.skill.speak_dialog.assert_called_with(
-            "who_am_i", {"name": self.skill.name})
+            "who_am_i", {"name": self.skill.ai_name})
         self.assertEqual(self.skill.speak_dialog.call_count, 2)
 
     def test_what_are_you(self):
         self.skill.handle_what_are_you(self.test_message)
         self.skill.speak_dialog.assert_called_once_with(
-            "what_am_i", {"name": self.skill.name})
+            "what_am_i", {"name": self.skill.ai_name})
 
     def test_how_are_you(self):
         self.skill.handle_how_are_you(self.test_message)
@@ -117,7 +122,7 @@ class TestSkill(unittest.TestCase):
     def test_what_is_your_name(self):
         self.skill.handle_what_is_your_name(self.test_message)
         self.skill.speak_dialog.assert_called_once_with(
-            "my_name", {"position": "name", "name": self.skill.name})
+            "my_name", {"position": "name", "name": self.skill.ai_name})
 
         first_name = Message("test", {"utterance": "what is your first name"})
         last_name = Message("test", {"utterance": "what is your surname"})
@@ -125,11 +130,11 @@ class TestSkill(unittest.TestCase):
         self.skill.handle_what_is_your_name(first_name)
         self.skill.speak_dialog.assert_called_with(
             "my_name", {"position": "first name",
-                        "name": self.skill.name.split()[0]})
+                        "name": self.skill.ai_name.split()[0]})
         self.skill.handle_what_is_your_name(last_name)
         self.skill.speak_dialog.assert_called_with(
             "my_name", {"position": "last name",
-                        "name": self.skill.name.split()[1]})
+                        "name": self.skill.ai_name.split()[1]})
 
 
 if __name__ == '__main__':

@@ -40,7 +40,7 @@ class PersonalSkill(NeonSkill):
         return self.settings.get("year_born") or "2015"
 
     @property
-    def name(self):
+    def ai_name(self):
         return self.settings.get("name") or "Neon AI"
 
     @property
@@ -73,12 +73,12 @@ class PersonalSkill(NeonSkill):
 
     @intent_file_handler("WhoAreYou")
     def handle_who_are_you(self, _):
-        self.speak_dialog("who_am_i", {"name": self.name})
+        self.speak_dialog("who_am_i", {"name": self.ai_name})
 
     @intent_file_handler("WhatAreYou.intent")
     def handle_what_are_you(self, message):
         if self.neon_in_request(message):
-            self.speak_dialog("what_am_i", {"name": self.name})
+            self.speak_dialog("what_am_i", {"name": self.ai_name})
 
     @intent_file_handler("HowAreYou.intent")
     def handle_how_are_you(self, message):
@@ -94,13 +94,13 @@ class PersonalSkill(NeonSkill):
     def handle_what_is_your_name(self, message):
         if self.voc_match(message.data.get("utterance", ""), "first"):
             position = "word_first_name"
-            spoken_name = self.name.split()[0]
+            spoken_name = self.ai_name.split()[0]
         elif self.voc_match(message.data.get("utterance"), "last"):
             position = "word_last_name"
-            spoken_name = self.name.split()[-1]
+            spoken_name = self.ai_name.split()[-1]
         else:
             position = "word_name"
-            spoken_name = self.name
+            spoken_name = self.ai_name
 
         self.speak_dialog("my_name", {"position": self.translate(position),
                                       "name": spoken_name})
