@@ -15,11 +15,7 @@
     "desktopFile": false,
     "warning": "",
     "systemDeps": false,
-    "requirements": {
-        "python": [],
-        "system": {},
-        "skill": []
-    },
+    "requirements": "No special required packages for this skill.",
     "incompatible_skills": [],
     "platforms": [
         "i386",
@@ -36,15 +32,13 @@
         "Configuration",
         "Entertainment"
     ],
-    "tags": [
-        ""
-    ],
+    "tags": [],
     "credits": [
         "Mycroft AI",
         "NeonDaniel",
         "reginaneon"
     ],
-    "skillname": "Personal",
+    "skillname": "skill-personal",
     "authorname": "NeonGeckoCom",
     "foldername": null
 }
