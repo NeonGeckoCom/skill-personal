@@ -71,7 +71,7 @@ class PersonalSkill(NeonSkill):
         if self.neon_in_request(message):
             self.speak_dialog("who_made_me", {"creator": self.creator})
 
-    @intent_file_handler("WhoAreYou")
+    @intent_file_handler("WhoAreYou.intent")
     def handle_who_are_you(self, _):
         self.speak_dialog("who_am_i", {"name": self.ai_name})
 
