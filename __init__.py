@@ -105,6 +105,11 @@ class PersonalSkill(NeonSkill):
         self.speak_dialog("my_name", {"position": self.translate(position),
                                       "name": spoken_name})
 
+    @intent_file_handler("WhereAreYou.intent")
+    def handle_where_are_you(self, message):
+        if self.neon_in_request(message):
+            self.speak_dialog("where_am_i")
+
     def stop(self):
         pass
 
