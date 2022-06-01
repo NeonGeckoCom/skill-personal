@@ -134,6 +134,10 @@ class TestSkill(unittest.TestCase):
             "my_name", {"position": "last name",
                         "name": self.skill.ai_name.split()[1]})
 
+    def test_where_are_you(self):
+        self.skill.handle_where_are_you(self.test_message)
+        self.skill.speak_dialog.assert_called_once_with("where_am_i")
+
 
 if __name__ == '__main__':
     unittest.main()
