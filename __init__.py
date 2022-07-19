@@ -75,7 +75,7 @@ class PersonalSkill(CommonQuerySkill):
             match = "who made you"
             speech = self.dialog_renderer.render(
                 "who_made_me", {"creator": self.creator})
-        elif self.voc_match(phrase, "who are you"):
+        elif self.voc_match(phrase, "who_are_you"):
             match = "who are you"
             speech = self.dialog_renderer.render(
                 "who_am_i", {"name": self.ai_name})
