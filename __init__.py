@@ -71,7 +71,7 @@ class PersonalSkill(CommonQuerySkill):
             match = "where were you born"
             speech = self.dialog_renderer.render(
                 "where_was_i_born", {"birthplace": self.birthplace})
-        elif self.voc_match(phrase, "who made you"):
+        elif self.voc_match(phrase, "who_made_you"):
             match = "who made you"
             speech = self.dialog_renderer.render(
                 "who_made_me", {"creator": self.creator})
@@ -131,8 +131,6 @@ class PersonalSkill(CommonQuerySkill):
 
     @intent_file_handler("WhatIsYourName.intent")
     def handle_what_is_your_name(self, message):
-        from neon_utils.logger import LOG
-        LOG.info(self.intent_service.registered_intents)
         self.speak(self._parse_name_response(message))
 
     @intent_file_handler("WhereAreYou.intent")
