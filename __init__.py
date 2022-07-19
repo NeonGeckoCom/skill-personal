@@ -26,12 +26,11 @@
 # NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE,  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from neon_utils.skills.neon_skill import NeonSkill
-
+from neon_utils.skills.common_query_skill import CommonQuerySkill, CQSMatchLevel
 from mycroft.skills import intent_file_handler
 
 
-class PersonalSkill(NeonSkill):
+class PersonalSkill(CommonQuerySkill):
     def __init__(self):
         super().__init__(name="PersonalSkill")
 
@@ -54,6 +53,46 @@ class PersonalSkill(NeonSkill):
     @property
     def email(self):
         return self.settings.get("email") or "developers@neon.ai"
+
+    def CQS_match_query_phrase(self, phrase, message):
+        match_conf = CQSMatchLevel.CATEGORY
+        if not self.voc_match(phrase, "you"):
+            # If this isn't about 'me', return None
+            return
+
+        if self.voc_match(phrase, "name"):
+            match = "what your name"  # This is just num words, not language
+            speech = self._parse_name_response(message)
+        elif self.voc_match(phrase, "when_were_you_born"):
+            match = "when were you born"
+            speech = self.dialog_renderer.render(
+                "when_was_i_born", {"year": self.year_born})
+        elif self.voc_match(phrase, "where_were_you_born"):
+            match = "where were you born"
+            speech = self.dialog_renderer.render(
+                "where_was_i_born", {"birthplace": self.birthplace})
+        elif self.voc_match(phrase, "who made you"):
+            match = "who made you"
+            speech = self.dialog_renderer.render(
+                "who_made_me", {"creator": self.creator})
+        elif self.voc_match(phrase, "who are you"):
+            match = "who are you"
+            speech = self.dialog_renderer.render(
+                "who_am_i", {"name": self.ai_name})
+        elif self.voc_match(phrase, "how_are_you"):
+            match = "how are you"
+            speech = self.dialog_renderer.render("how_am_i")
+        elif self.voc_match(phrase, "what_is_your_email"):
+            match = "what is your email"
+            speech = self.dialog_renderer.render(
+                "my_email_address", {"email": self.email})
+        elif self.voc_match(phrase, "where_are_you"):
+            match = "where are you"
+            speech = self.dialog_renderer.render("where_am_i")
+        else:
+            # "you" in utterance, but no valid intent to handle here
+            return None
+        return match, match_conf, speech
 
     @intent_file_handler("WhenWereYouBorn.intent")
     def handle_when_were_you_born(self, message):
@@ -92,6 +131,16 @@ class PersonalSkill(NeonSkill):
 
     @intent_file_handler("WhatIsYourName.intent")
     def handle_what_is_your_name(self, message):
+        from neon_utils.logger import LOG
+        LOG.info(self.intent_service.registered_intents)
+        self.speak(self._parse_name_response(message))
+
+    @intent_file_handler("WhereAreYou.intent")
+    def handle_where_are_you(self, message):
+        if self.neon_in_request(message):
+            self.speak_dialog("where_am_i")
+
+    def _parse_name_response(self, message):
         if self.voc_match(message.data.get("utterance", ""), "first"):
             position = "word_first_name"
             spoken_name = self.ai_name.split()[0]
@@ -102,13 +151,9 @@ class PersonalSkill(NeonSkill):
             position = "word_name"
             spoken_name = self.ai_name
 
-        self.speak_dialog("my_name", {"position": self.translate(position),
-                                      "name": spoken_name})
-
-    @intent_file_handler("WhereAreYou.intent")
-    def handle_where_are_you(self, message):
-        if self.neon_in_request(message):
-            self.speak_dialog("where_am_i")
+        return self.dialog_renderer.render(
+            "my_name", {"position": self.translate(position),
+                        "name": spoken_name})
 
     def stop(self):
         pass
