@@ -41,7 +41,7 @@ class PersonalSkill(NeonSkill):
 
     @property
     def ai_name(self):
-        return self.settings.get("name") or "Neon AI"
+        return self.settings.get("name") or "Neon A.I."
 
     @property
     def birthplace(self):
