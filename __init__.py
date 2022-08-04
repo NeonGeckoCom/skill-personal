@@ -41,18 +41,39 @@ class PersonalSkill(NeonSkill):
 
     @property
     def ai_name(self):
-        return self.settings.get("name") or "Neon A.I."
+        """
+        Get a speakable name for the assistant.
+        If there is a name configured in skill settings,
+        it will be treated as a dialog reference
+        (spoken directly if the resource is unavailable).
+        """
+        return self.translate(self.settings.get("name") or "neon")
 
     @property
     def birthplace(self):
-        return self.settings.get("birthplace") or "Seattle, Washington"
+        """
+        Get a speakable birthplace for the assistant.
+        If there is a birthplace configured in skill settings,
+        it will be treated as a dialog reference
+        (spoken directly if the resource is unavailable).
+        """
+        return self.translate(self.settings.get("birthplace") or "birthplace")
 
     @property
     def creator(self):
-        return self.settings.get("creator") or "Neon Gecko dot com Inc"
+        """
+        Get a speakable creator of the assistant.
+        If there is a birthplace configured in skill settings,
+        it will be treated as a dialog reference
+        (spoken directly if the resource is unavailable).
+        """
+        return self.translate(self.settings.get("creator") or "creator")
 
     @property
     def email(self):
+        """
+        Get a speakable email address for the assistant.
+        """
         return self.settings.get("email") or "developers@neon.ai"
 
     @intent_file_handler("WhenWereYouBorn.intent")
