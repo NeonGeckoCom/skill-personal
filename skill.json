@@ -5,9 +5,11 @@
     "short_description": "Skill used for introduction between the user and Neon.",
     "description": "Personal skill provides responses to questions about who Neon is.",
     "examples": [
-        "who are you",
-        "who made you",
-        "when were you born"
+        "who are you?",
+        "who made you?",
+        "when were you born?",
+        "what is your email address?",
+        "where were you born?"
     ],
     "desktopFile": false,
     "warning": "",

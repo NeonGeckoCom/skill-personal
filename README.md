@@ -9,9 +9,11 @@ Skill used for introduction between the user and Neon.
 Personal skill provides responses to questions about who Neon is.
 
 ## Examples
-- who are you
-- who made you
-- when were you born
+- who are you?
+- who made you?
+- when were you born?
+- what is your email address?
+- where were you born?
 
 ## Contact Support
 
