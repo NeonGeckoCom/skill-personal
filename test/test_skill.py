@@ -122,8 +122,10 @@ class TestSkill(unittest.TestCase):
         self.skill.speak_dialog.assert_called_once_with(
             "my_name", {"position": "name", "name": self.skill.ai_name})
 
-        first_name = Message("test", {"utterance": "what is your first name"})
-        last_name = Message("test", {"utterance": "what is your surname"})
+        first_name = Message("test", {"utterance": "what is your first name",
+                                      "first": "first"})
+        last_name = Message("test", {"utterance": "what is your surname",
+                                     "last": "surname"})
 
         self.skill.handle_what_is_your_name(first_name)
         self.skill.speak_dialog.assert_called_with(
