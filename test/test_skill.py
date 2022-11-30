@@ -136,6 +136,10 @@ class TestSkill(unittest.TestCase):
         self.skill.handle_where_are_you(self.test_message)
         self.skill.speak_dialog.assert_called_once_with("where_am_i")
 
+    def test_cqs_match_query_phrase(self):
+        # TODO
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
