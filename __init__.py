@@ -106,10 +106,8 @@ class PersonalSkill(CommonQuerySkill):
                 dialog = self.dialog_renderer.render(
                     "when_was_i_born", {"year": self.year_born})
             else:
-                LOG.debug(f"handling as who made request: {phrase}")
-                match_level = CQSMatchLevel.CATEGORY
-                dialog = self.dialog_renderer.render(
-                    "who_made_me", {"creator": self.creator})
+                LOG.debug(f"ignoring query: {phrase}")
+                return None
             return phrase, match_level, dialog, {}
         if self.voc_match(phrase, 'are'):
             match_level = CQSMatchLevel.EXACT
@@ -137,7 +135,7 @@ class PersonalSkill(CommonQuerySkill):
             )
             return phrase, match_level, dialog, {}
         if self.voc_match(phrase, 'name'):
-            match_level = CQSMatchLevel.EXACT
+            match_level = CQSMatchLevel.CATEGORY
             dialog = self.dialog_renderer.render(
                 "my_name", {"position": self.translate('word_name'),
                             "name": self.ai_name})
@@ -176,6 +174,8 @@ class PersonalSkill(CommonQuerySkill):
     @intent_handler(IntentBuilder("HowAreYou").require('how').require('are')
                     .require('you'))
     def handle_how_are_you(self, message):
+        # TODO: This should probably be moved to a separate skill to handle more
+        #       complex questions like: 'how do you feel about x'
         if self.neon_in_request(message):
             self.speak_dialog("how_am_i")
 
