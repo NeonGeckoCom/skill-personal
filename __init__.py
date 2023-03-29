@@ -32,7 +32,7 @@ from ovos_utils.process_utils import RuntimeRequirements
 from neon_utils.skills.common_query_skill import CommonQuerySkill, CQSMatchLevel
 from adapt.intent import IntentBuilder
 
-from mycroft.skills.core import intent_handler
+from mycroft.skills.core import intent_handler, intent_file_handler
 
 
 class PersonalSkill(CommonQuerySkill):
@@ -155,32 +155,27 @@ class PersonalSkill(CommonQuerySkill):
                             "name": self.ai_name})
             return phrase, match_level, dialog, {}
 
-    @intent_handler(IntentBuilder("WhenWereYouBorn").require('when')
-                    .require('you').require('born'))
+    @intent_file_handler("WhenWereYouBorn.intent")
     def handle_when_were_you_born(self, message):
         if self.neon_in_request(message):
             self.speak_dialog("when_was_i_born", {"year": self.year_born})
 
-    @intent_handler(IntentBuilder("WhereWereYouBorn").require('where')
-                    .require('you').require('born'))
+    @intent_file_handler("WhereWereYouBorn.intent")
     def handle_where_were_you_born(self, message):
         if self.neon_in_request(message):
             self.speak_dialog("where_was_i_born",
                               {"birthplace": self.birthplace})
 
-    @intent_handler(IntentBuilder("WhoMadeYou").require('who').require('made')
-                    .require('you'))
+    @intent_file_handler("WhoMadeYou.intent")
     def handle_who_made_you(self, message):
         if self.neon_in_request(message):
             self.speak_dialog("who_made_me", {"creator": self.creator})
 
-    @intent_handler(IntentBuilder("WhoAreYou").require('who').require('are')
-                    .require('you'))
+    @intent_file_handler("WhoAreYou.intent")
     def handle_who_are_you(self, _):
         self.speak_dialog("who_am_i", {"name": self.ai_name})
 
-    @intent_handler(IntentBuilder("WhatAreYou").require('what').require('are')
-                    .require('you'))
+    @intent_file_handler("WhatAreYou.intent")
     def handle_what_are_you(self, message):
         if self.neon_in_request(message):
             self.speak_dialog("what_am_i", {"name": self.ai_name})
@@ -193,14 +188,12 @@ class PersonalSkill(CommonQuerySkill):
         if self.neon_in_request(message):
             self.speak_dialog("how_am_i")
 
-    @intent_handler(IntentBuilder("WhereAreYou").require('where').require('are')
-                    .require('you'))
+    @intent_file_handler("WhereAreYou.intent")
     def handle_where_are_you(self, message):
         if self.neon_in_request(message):
             self.speak_dialog("where_am_i")
 
-    @intent_handler(IntentBuilder("WhatIsYourEmail").require('what')
-                    .require('you').require('email'))
+    @intent_file_handler("WhatIsYourEmail.intent")
     def handle_what_is_your_email(self, message):
         if self.neon_in_request(message):
             self.speak_dialog("my_email_address", {"email": self.email})

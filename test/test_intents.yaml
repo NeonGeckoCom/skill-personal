@@ -1,28 +1,29 @@
 en-us:
-  WhenWereYouBorn:
+  WhenWereYouBorn.intent:
     - when were you born
-    - when is your birthday
-    - when is your birth day
-  WhereWereYouBorn:
+    - what is your birthday
+    - tell me your birth day
+  WhereWereYouBorn.intent:
     - where were you born
     - where is your birth place
-  WhoMadeYou:
+  WhoMadeYou.intent:
     - who made you
     - who is your creator
-  WhoAreYou:
+  WhoAreYou.intent:
     - who are you
     - tell me who you are
-  WhatAreYou:
+  WhatAreYou.intent:
     - what are you
     - tell me what you are
   HowAreYou:
     - how are you
-  WhereAreYou:
+  WhereAreYou.intent:
     - where are you
     - where is your location
-  WhatIsYourEmail:
+  WhatIsYourEmail.intent:
     - what is your email address
-    - tell me your email address
+    - tell me your email
+    - i want to know what your email address is
   WhatIsYourName:
     - what is your name
     - tell me your first name:
@@ -36,3 +37,5 @@ unmatched intents:
     - what is a name
     - where is my home
     - where am I
+    - what is an email address
+    - tell me about email
