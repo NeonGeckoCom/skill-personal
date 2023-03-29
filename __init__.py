@@ -199,8 +199,7 @@ class PersonalSkill(CommonQuerySkill):
             self.speak_dialog("my_email_address", {"email": self.email})
 
     @intent_handler(IntentBuilder("WhatIsYourName").require('what')
-                    .require('you').optionally('first').optionally('last')
-                    .require('name'))
+                    .require('you').one_of('first', 'last', 'name'))
     def handle_what_is_your_name(self, message):
         if message.data.get("first"):
             position = "word_first_name"
