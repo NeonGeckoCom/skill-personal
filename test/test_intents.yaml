@@ -1,0 +1,40 @@
+en-us:
+  WhenWereYouBorn:
+    - when were you born
+    - when is your birthday
+    - when is your birth day
+  WhereWereYouBorn:
+    - where were you born
+    - where is your birth place
+  WhoMadeYou:
+    - who made you
+    - who is your creator
+  WhoAreYou:
+    - who are you
+    - tell me who you are
+  WhatAreYou:
+    - what are you
+    - tell me what you are
+  HowAreYou:
+    - how are you
+    - how do you feel
+    - how do you do
+  WhereAreYou:
+    - where are you
+    - where is your location
+  WhatIsYourEmail:
+    - what is your email address
+    - tell me your email address
+  WhatIsYourName:
+    - what is your name
+    - tell me your first name:
+      - first
+    - what is your last name:
+      - last
+
+unmatched intents:
+  en-us:
+    - what is my name
+    - what is a name
+    - where is my home
+    - where am I
