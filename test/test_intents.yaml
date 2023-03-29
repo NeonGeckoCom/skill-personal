@@ -26,7 +26,7 @@ en-us:
     - i want to know what your email address is
   WhatIsYourName:
     - what is your name
-    - tell me your first name:
+    - what is your first name:
       - first
     - what is your last name:
       - last
