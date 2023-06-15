@@ -36,9 +36,6 @@ from mycroft.skills.core import intent_handler, intent_file_handler
 
 
 class PersonalSkill(CommonQuerySkill):
-    def __init__(self, **kwargs):
-        CommonQuerySkill.__init__(**kwargs)
-
     @classproperty
     def runtime_requirements(self):
         return RuntimeRequirements(network_before_load=False,
