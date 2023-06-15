@@ -36,8 +36,8 @@ from mycroft.skills.core import intent_handler, intent_file_handler
 
 
 class PersonalSkill(CommonQuerySkill):
-    def __init__(self):
-        super().__init__(name="PersonalSkill")
+    def __init__(self, **kwargs):
+        CommonQuerySkill.__init__(**kwargs)
 
     @classproperty
     def runtime_requirements(self):
@@ -216,7 +216,3 @@ class PersonalSkill(CommonQuerySkill):
 
     def stop(self):
         pass
-
-
-def create_skill():
-    return PersonalSkill()
