@@ -34,7 +34,7 @@ from mock import Mock
 from mock.mock import patch, MagicMock
 from neon_utils.skills.common_query_skill import CQSMatchLevel
 from ovos_utils.messagebus import FakeBus
-from mycroft_bus_client import Message
+from ovos_bus_client import Message
 from mycroft.skills.skill_loader import SkillLoader
 
 
