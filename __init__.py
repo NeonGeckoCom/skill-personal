@@ -90,67 +90,71 @@ class PersonalSkill(CommonQuerySkill):
         return self.settings.get("email") or "developers@neon.ai"
 
     def CQS_match_query_phrase(self, phrase, message):
-        if not self.voc_match(phrase, 'you'):
+        try:
+            if not self.voc_match(phrase, 'you'):
+                return None
+            if self.voc_match(phrase, 'born'):
+                if self.voc_match(phrase, 'when'):
+                    match_level = CQSMatchLevel.EXACT
+                    dialog = self.dialog_renderer.render(
+                        "when_was_i_born", {"year": self.year_born})
+                elif self.voc_match(phrase, 'where'):
+                    match_level = CQSMatchLevel.EXACT
+                    dialog = self.dialog_renderer.render(
+                        "where_was_i_born", {"birthplace": self.birthplace})
+                else:
+                    LOG.debug(f"handling as birthday request: {phrase}")
+                    match_level = CQSMatchLevel.CATEGORY
+                    dialog = self.dialog_renderer.render(
+                        "when_was_i_born", {"year": self.year_born})
+                return phrase, match_level, dialog, {}
+            if self.voc_match(phrase, 'made'):
+                if self.voc_match(phrase, 'who'):
+                    match_level = CQSMatchLevel.EXACT
+                    dialog = self.dialog_renderer.render(
+                        "who_made_me", {"creator": self.creator})
+                elif self.voc_match(phrase, 'when'):
+                    match_level = CQSMatchLevel.EXACT
+                    dialog = self.dialog_renderer.render(
+                        "when_was_i_born", {"year": self.year_born})
+                else:
+                    LOG.debug(f"ignoring query: {phrase}")
+                    return None
+                return phrase, match_level, dialog, {}
+            if self.voc_match(phrase, 'are'):
+                match_level = CQSMatchLevel.EXACT
+                if self.voc_match(phrase, 'who'):
+                    dialog = self.dialog_renderer.render(
+                        "who_am_i", {"name": self.ai_name})
+                elif self.voc_match(phrase, 'what'):
+                    dialog = self.dialog_renderer.render(
+                        "what_am_i", {"name": self.ai_name})
+                elif self.voc_match(phrase, 'how'):
+                    dialog = self.dialog_renderer.render("how_am_i")
+                elif self.voc_match(phrase, 'where'):
+                    dialog = self.dialog_renderer.render("where_am_i")
+                else:
+                    LOG.debug(f"ignoring query: {phrase}")
+                    return None
+                return phrase, match_level, dialog, {}
+            if self.voc_match(phrase, 'email'):
+                if self.voc_match(phrase, 'what'):
+                    match_level = CQSMatchLevel.EXACT
+                else:
+                    match_level = CQSMatchLevel.CATEGORY
+                dialog = self.dialog_renderer.render(
+                    "my_email_address", {"email": self.email}
+                )
+                return phrase, match_level, dialog, {}
+            if self.voc_match(phrase, 'name'):
+                match_level = CQSMatchLevel.CATEGORY
+                dialog = self.dialog_renderer.render(
+                    "my_name", {"position": self.translate('word_name'),
+                                "name": self.ai_name})
+                return phrase, match_level, dialog, {}
+        except FileNotFoundError as e:
+            LOG.warning(f"Missing resource for lang: {self.lang} - {e}")
             return None
-        if self.voc_match(phrase, 'born'):
-            if self.voc_match(phrase, 'when'):
-                match_level = CQSMatchLevel.EXACT
-                dialog = self.dialog_renderer.render(
-                    "when_was_i_born", {"year": self.year_born})
-            elif self.voc_match(phrase, 'where'):
-                match_level = CQSMatchLevel.EXACT
-                dialog = self.dialog_renderer.render(
-                    "where_was_i_born", {"birthplace": self.birthplace})
-            else:
-                LOG.debug(f"handling as birthday request: {phrase}")
-                match_level = CQSMatchLevel.CATEGORY
-                dialog = self.dialog_renderer.render(
-                    "when_was_i_born", {"year": self.year_born})
-            return phrase, match_level, dialog, {}
-        if self.voc_match(phrase, 'made'):
-            if self.voc_match(phrase, 'who'):
-                match_level = CQSMatchLevel.EXACT
-                dialog = self.dialog_renderer.render(
-                    "who_made_me", {"creator": self.creator})
-            elif self.voc_match(phrase, 'when'):
-                match_level = CQSMatchLevel.EXACT
-                dialog = self.dialog_renderer.render(
-                    "when_was_i_born", {"year": self.year_born})
-            else:
-                LOG.debug(f"ignoring query: {phrase}")
-                return None
-            return phrase, match_level, dialog, {}
-        if self.voc_match(phrase, 'are'):
-            match_level = CQSMatchLevel.EXACT
-            if self.voc_match(phrase, 'who'):
-                dialog = self.dialog_renderer.render(
-                    "who_am_i", {"name": self.ai_name})
-            elif self.voc_match(phrase, 'what'):
-                dialog = self.dialog_renderer.render(
-                    "what_am_i", {"name": self.ai_name})
-            elif self.voc_match(phrase, 'how'):
-                dialog = self.dialog_renderer.render("how_am_i")
-            elif self.voc_match(phrase, 'where'):
-                dialog = self.dialog_renderer.render("where_am_i")
-            else:
-                LOG.debug(f"ignoring query: {phrase}")
-                return None
-            return phrase, match_level, dialog, {}
-        if self.voc_match(phrase, 'email'):
-            if self.voc_match(phrase, 'what'):
-                match_level = CQSMatchLevel.EXACT
-            else:
-                match_level = CQSMatchLevel.CATEGORY
-            dialog = self.dialog_renderer.render(
-                "my_email_address", {"email": self.email}
-            )
-            return phrase, match_level, dialog, {}
-        if self.voc_match(phrase, 'name'):
-            match_level = CQSMatchLevel.CATEGORY
-            dialog = self.dialog_renderer.render(
-                "my_name", {"position": self.translate('word_name'),
-                            "name": self.ai_name})
-            return phrase, match_level, dialog, {}
 
     @intent_file_handler("WhenWereYouBorn.intent")
     def handle_when_were_you_born(self, message):
