@@ -35,6 +35,8 @@ from neon_minerva.tests.skill_unit_test_base import SkillTestCase
 
 
 class TestSkillMethods(SkillTestCase):
+    test_message = Message("test", {}, {"neon_in_request": True})
+
     def test_00_skill_init(self):
         # Test any parameters expected to be set in init or initialize methods
         from neon_utils.skills.neon_skill import NeonSkill
