@@ -1,21 +1,36 @@
 # Changelog
 
-## [0.3.1a3](https://github.com/NeonGeckoCom/skill-personal/tree/0.3.1a3) (2023-06-15)
+## [1.0.1a4](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.1a4) (2024-04-02)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/0.3.1a2...0.3.1a3)
-
-**Merged pull requests:**
-
-- Deprecate `create_skill` method and `__init__` for best practices [\#41](https://github.com/NeonGeckoCom/skill-personal/pull/41) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [0.3.1a2](https://github.com/NeonGeckoCom/skill-personal/tree/0.3.1a2) (2023-06-14)
-
-[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/0.3.0...0.3.1a2)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.1a3...1.0.1a4)
 
 **Merged pull requests:**
 
-- Update GH automation to best practices [\#40](https://github.com/NeonGeckoCom/skill-personal/pull/40) ([NeonDaniel](https://github.com/NeonDaniel))
-- Refactor mycroft-messagebus-client to ovos-bus-client [\#38](https://github.com/NeonGeckoCom/skill-personal/pull/38) ([NeonDaniel](https://github.com/NeonDaniel))
+- Update test dependency to stable spec [\#46](https://github.com/NeonGeckoCom/skill-personal/pull/46) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [1.0.1a3](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.1a3) (2024-02-05)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.1a2...1.0.1a3)
+
+**Merged pull requests:**
+
+- Support ovos-utils 0.1 [\#45](https://github.com/NeonGeckoCom/skill-personal/pull/45) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [1.0.1a2](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.1a2) (2024-01-09)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.1a1...1.0.1a2)
+
+**Merged pull requests:**
+
+- Update to better handle CQS exceptions [\#43](https://github.com/NeonGeckoCom/skill-personal/pull/43) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [1.0.1a1](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.1a1) (2024-01-09)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.0...1.0.1a1)
+
+**Merged pull requests:**
+
+- Update Unit Tests [\#44](https://github.com/NeonGeckoCom/skill-personal/pull/44) ([NeonDaniel](https://github.com/NeonDaniel))
 
 
 
