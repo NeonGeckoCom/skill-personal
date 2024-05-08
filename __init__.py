@@ -31,8 +31,7 @@ from ovos_utils.log import LOG
 from ovos_utils.process_utils import RuntimeRequirements
 from neon_utils.skills.common_query_skill import CommonQuerySkill, CQSMatchLevel
 from adapt.intent import IntentBuilder
-
-from mycroft.skills.core import intent_handler, intent_file_handler
+from ovos_workshop.skills.decorators import intent_handler, intent_file_handler
 
 
 class PersonalSkill(CommonQuerySkill):
@@ -60,7 +59,7 @@ class PersonalSkill(CommonQuerySkill):
         it will be treated as a dialog reference
         (spoken directly if the resource is unavailable).
         """
-        return self.translate(self.settings.get("name") or "neon")
+        return self.resources.render_dialog(self.settings.get("name") or "neon")
 
     @property
     def birthplace(self):
@@ -70,7 +69,8 @@ class PersonalSkill(CommonQuerySkill):
         it will be treated as a dialog reference
         (spoken directly if the resource is unavailable).
         """
-        return self.translate(self.settings.get("birthplace") or "birthplace")
+        return self.resources.render_dialog(self.settings.get("birthplace") or
+                                            "birthplace")
 
     @property
     def creator(self):
@@ -80,7 +80,8 @@ class PersonalSkill(CommonQuerySkill):
         it will be treated as a dialog reference
         (spoken directly if the resource is unavailable).
         """
-        return self.translate(self.settings.get("creator") or "creator")
+        return self.resources.render_dialog(self.settings.get("creator") or
+                                            "creator")
 
     @property
     def email(self):
@@ -212,8 +213,9 @@ class PersonalSkill(CommonQuerySkill):
             position = "word_name"
             spoken_name = self.ai_name
 
-        self.speak_dialog("my_name", {"position": self.translate(position),
-                                      "name": spoken_name})
+        self.speak_dialog("my_name",
+                          {"position": self.resources.render_dialog(position),
+                           "name": spoken_name})
 
     def stop(self):
         pass
