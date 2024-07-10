@@ -1,36 +1,20 @@
 # Changelog
 
-## [1.0.1a4](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.1a4) (2024-04-02)
+## [1.0.2a2](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.2a2) (2024-05-10)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.1a3...1.0.1a4)
-
-**Merged pull requests:**
-
-- Update test dependency to stable spec [\#46](https://github.com/NeonGeckoCom/skill-personal/pull/46) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [1.0.1a3](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.1a3) (2024-02-05)
-
-[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.1a2...1.0.1a3)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.2a1...1.0.2a2)
 
 **Merged pull requests:**
 
-- Support ovos-utils 0.1 [\#45](https://github.com/NeonGeckoCom/skill-personal/pull/45) ([NeonDaniel](https://github.com/NeonDaniel))
+- Update deprecated imports [\#49](https://github.com/NeonGeckoCom/skill-personal/pull/49) ([NeonDaniel](https://github.com/NeonDaniel))
 
-## [1.0.1a2](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.1a2) (2024-01-09)
+## [1.0.2a1](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.2a1) (2024-05-08)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.1a1...1.0.1a2)
-
-**Merged pull requests:**
-
-- Update to better handle CQS exceptions [\#43](https://github.com/NeonGeckoCom/skill-personal/pull/43) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [1.0.1a1](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.1a1) (2024-01-09)
-
-[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.0...1.0.1a1)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.1...1.0.2a1)
 
 **Merged pull requests:**
 
-- Update Unit Tests [\#44](https://github.com/NeonGeckoCom/skill-personal/pull/44) ([NeonDaniel](https://github.com/NeonDaniel))
+- Update to resolve deprecation warnings [\#48](https://github.com/NeonGeckoCom/skill-personal/pull/48) ([NeonDaniel](https://github.com/NeonDaniel))
 
 
 

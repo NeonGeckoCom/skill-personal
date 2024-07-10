@@ -31,8 +31,7 @@ from ovos_utils.log import LOG
 from ovos_utils.process_utils import RuntimeRequirements
 from neon_utils.skills.common_query_skill import CommonQuerySkill, CQSMatchLevel
 from adapt.intent import IntentBuilder
-
-from mycroft.skills.core import intent_handler, intent_file_handler
+from ovos_workshop.decorators import intent_handler
 
 
 class PersonalSkill(CommonQuerySkill):
@@ -60,7 +59,7 @@ class PersonalSkill(CommonQuerySkill):
         it will be treated as a dialog reference
         (spoken directly if the resource is unavailable).
         """
-        return self.translate(self.settings.get("name") or "neon")
+        return self.resources.render_dialog(self.settings.get("name") or "neon")
 
     @property
     def birthplace(self):
@@ -70,7 +69,8 @@ class PersonalSkill(CommonQuerySkill):
         it will be treated as a dialog reference
         (spoken directly if the resource is unavailable).
         """
-        return self.translate(self.settings.get("birthplace") or "birthplace")
+        return self.resources.render_dialog(self.settings.get("birthplace") or
+                                            "birthplace")
 
     @property
     def creator(self):
@@ -80,7 +80,8 @@ class PersonalSkill(CommonQuerySkill):
         it will be treated as a dialog reference
         (spoken directly if the resource is unavailable).
         """
-        return self.translate(self.settings.get("creator") or "creator")
+        return self.resources.render_dialog(self.settings.get("creator") or
+                                            "creator")
 
     @property
     def email(self):
@@ -156,27 +157,27 @@ class PersonalSkill(CommonQuerySkill):
             LOG.warning(f"Missing resource for lang: {self.lang} - {e}")
             return None
 
-    @intent_file_handler("WhenWereYouBorn.intent")
+    @intent_handler("WhenWereYouBorn.intent")
     def handle_when_were_you_born(self, message):
         if self.neon_in_request(message):
             self.speak_dialog("when_was_i_born", {"year": self.year_born})
 
-    @intent_file_handler("WhereWereYouBorn.intent")
+    @intent_handler("WhereWereYouBorn.intent")
     def handle_where_were_you_born(self, message):
         if self.neon_in_request(message):
             self.speak_dialog("where_was_i_born",
                               {"birthplace": self.birthplace})
 
-    @intent_file_handler("WhoMadeYou.intent")
+    @intent_handler("WhoMadeYou.intent")
     def handle_who_made_you(self, message):
         if self.neon_in_request(message):
             self.speak_dialog("who_made_me", {"creator": self.creator})
 
-    @intent_file_handler("WhoAreYou.intent")
+    @intent_handler("WhoAreYou.intent")
     def handle_who_are_you(self, _):
         self.speak_dialog("who_am_i", {"name": self.ai_name})
 
-    @intent_file_handler("WhatAreYou.intent")
+    @intent_handler("WhatAreYou.intent")
     def handle_what_are_you(self, message):
         if self.neon_in_request(message):
             self.speak_dialog("what_am_i", {"name": self.ai_name})
@@ -189,12 +190,12 @@ class PersonalSkill(CommonQuerySkill):
         if self.neon_in_request(message):
             self.speak_dialog("how_am_i")
 
-    @intent_file_handler("WhereAreYou.intent")
+    @intent_handler("WhereAreYou.intent")
     def handle_where_are_you(self, message):
         if self.neon_in_request(message):
             self.speak_dialog("where_am_i")
 
-    @intent_file_handler("WhatIsYourEmail.intent")
+    @intent_handler("WhatIsYourEmail.intent")
     def handle_what_is_your_email(self, message):
         if self.neon_in_request(message):
             self.speak_dialog("my_email_address", {"email": self.email})
@@ -212,8 +213,9 @@ class PersonalSkill(CommonQuerySkill):
             position = "word_name"
             spoken_name = self.ai_name
 
-        self.speak_dialog("my_name", {"position": self.translate(position),
-                                      "name": spoken_name})
+        self.speak_dialog("my_name",
+                          {"position": self.resources.render_dialog(position),
+                           "name": spoken_name})
 
     def stop(self):
         pass
