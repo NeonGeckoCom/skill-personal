@@ -30,7 +30,7 @@ from ovos_utils import classproperty
 from ovos_utils.log import LOG
 from ovos_utils.process_utils import RuntimeRequirements
 from neon_utils.skills.common_query_skill import CommonQuerySkill, CQSMatchLevel
-from adapt.intent import IntentBuilder
+from ovos_workshop.intents import IntentBuilder
 from ovos_workshop.decorators import intent_handler
 
 
