@@ -1,20 +1,28 @@
 # Changelog
 
-## [1.0.2a2](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.2a2) (2024-05-10)
+## [1.0.3a3](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.3a3) (2025-03-19)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.2a1...1.0.2a2)
-
-**Merged pull requests:**
-
-- Update deprecated imports [\#49](https://github.com/NeonGeckoCom/skill-personal/pull/49) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [1.0.2a1](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.2a1) (2024-05-08)
-
-[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.1...1.0.2a1)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.3a2...1.0.3a3)
 
 **Merged pull requests:**
 
-- Update to resolve deprecation warnings [\#48](https://github.com/NeonGeckoCom/skill-personal/pull/48) ([NeonDaniel](https://github.com/NeonDaniel))
+- Remove unused dependency extras [\#55](https://github.com/NeonGeckoCom/skill-personal/pull/55) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [1.0.3a2](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.3a2) (2025-03-11)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.3a1...1.0.3a2)
+
+**Merged pull requests:**
+
+- Update automation, gitignore, and license notices [\#54](https://github.com/NeonGeckoCom/skill-personal/pull/54) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [1.0.3a1](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.3a1) (2024-09-17)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.2...1.0.3a1)
+
+**Merged pull requests:**
+
+- Update OVOS depdendencies for 0.x compat [\#53](https://github.com/NeonGeckoCom/skill-personal/pull/53) ([NeonDaniel](https://github.com/NeonDaniel))
 
 
 
