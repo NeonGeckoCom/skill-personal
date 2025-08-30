@@ -12,8 +12,12 @@ jobs:
     uses: neongeckocom/.github/.github/workflows/skill_tests.yml@master
   skill_intent_tests:
     uses: neongeckocom/.github/.github/workflows/skill_test_intents.yml@master
+    with:
+      skill_entrypoint: skill-personal.neongeckocom
   skill_resource_tests:
     uses: neongeckocom/.github/.github/workflows/skill_test_resources.yml@master
+    with:
+      skill_entrypoint: skill-personal.neongeckocom
   skill_install_tests:
     uses: neongeckocom/.github/.github/workflows/skill_test_installation.yml@master
     with:
