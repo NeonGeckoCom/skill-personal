@@ -31,7 +31,9 @@ from ovos_utils.log import LOG
 from ovos_utils.process_utils import RuntimeRequirements
 from neon_utils.skills.common_query_skill import CommonQuerySkill, CQSMatchLevel
 from ovos_workshop.intents import IntentBuilder
-from ovos_workshop.decorators import intent_handler
+from ovos_workshop.decorators import intent_handler, skill_api_method
+
+from neon_skill_personal.models import Personality
 
 
 class PersonalSkill(CommonQuerySkill):
@@ -89,6 +91,19 @@ class PersonalSkill(CommonQuerySkill):
         Get a speakable email address for the assistant.
         """
         return self.settings.get("email") or "developers@neon.ai"
+
+    @skill_api_method
+    def get_ai_persona(self) -> Personality:
+        """
+        Get the assistant's configured persona information.
+        """
+        return Personality(
+            year_born=int(self.year_born),
+            name=self.ai_name,
+            birthplace=self.birthplace,
+            creator=self.creator,
+            email=self.email
+        )
 
     def CQS_match_query_phrase(self, phrase, message):
         try:
