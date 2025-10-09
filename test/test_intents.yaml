@@ -15,8 +15,8 @@ en-us:
   WhatAreYou.intent:
     - what are you
     - tell me what you are
-  HowAreYou:
-    - how are you
+  # HowAreYou:
+  #   - how are you
   WhereAreYou.intent:
     - where are you
     - where is your location
