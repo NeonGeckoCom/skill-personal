@@ -24,12 +24,12 @@ en-us:
     - what is your email address
     - tell me your email
     - i want to know what your email address is
-  WhatIsYourName:
-    - what is your name
-    - what is your first name:
-      - first
-    - what is your last name:
-      - last
+  # WhatIsYourName:
+  #   - what is your name
+  #   - what is your first name:
+  #     - first
+  #   - what is your last name:
+  #     - last
 
 uk-ua:
   WhenWereYouBorn.intent:
