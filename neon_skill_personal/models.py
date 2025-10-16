@@ -26,4 +26,12 @@
 # NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE,  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-__version__ = "1.0.4a2"
+from pydantic import BaseModel, Field
+
+
+class Personality(BaseModel):
+    year_born: int = Field(description="Year of persona creation")
+    name: str = Field(description="Name of the persona")
+    birthplace: str = Field(description="Birthplace of the persona")
+    creator: str = Field(description="Creator of the persona")
+    email: str = Field(description="Contact email for the persona")
