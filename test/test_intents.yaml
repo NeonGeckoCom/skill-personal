@@ -15,8 +15,8 @@ en-us:
   WhatAreYou.intent:
     - what are you
     - tell me what you are
-  # HowAreYou:
-  #   - how are you
+  HowAreYou:
+    - how are you
   WhereAreYou.intent:
     - where are you
     - where is your location
@@ -24,12 +24,12 @@ en-us:
     - what is your email address
     - tell me your email
     - i want to know what your email address is
-  # WhatIsYourName:
-  #   - what is your name
-  #   - what is your first name:
-  #     - first
-  #   - what is your last name:
-  #     - last
+  WhatIsYourName:
+    - what is your name
+    - what is your first name:
+      - first
+    - what is your last name:
+      - last
 
 uk-ua:
   WhenWereYouBorn.intent:
@@ -48,9 +48,9 @@ uk-ua:
   WhatAreYou.intent:
     - що ти таке
     - скажи мені що ти є
-  # HowAreYou:
-  #   - як ти
-  #   - як справи
+  HowAreYou:
+    - як ти
+    - як справи
   WhereAreYou.intent:
     - де ти
     - де твоє місцезнаходження
@@ -58,12 +58,12 @@ uk-ua:
     - яка твоя електронна адреса
     - скажи мені твою електронну пошту
     - я хочу знати яка твоя електронна адреса
-  # WhatIsYourName:
-  #   - яке твоє ім'я
-  #   - яке твоє ім'я:
-  #     - first
-  #   - яке твоє прізвище:
-  #     - last
+  WhatIsYourName:
+    - яке твоє ім'я
+    - яке твоє ім'я:
+      - first
+    - яке твоє прізвище:
+      - last
 
 unmatched intents:
   en-us:
