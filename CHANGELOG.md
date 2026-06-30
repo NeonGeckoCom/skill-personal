@@ -1,28 +1,36 @@
 # Changelog
 
-## [1.0.3a3](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.3a3) (2025-03-19)
+## [1.0.4a4](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.4a4) (2026-06-25)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.3a2...1.0.3a3)
-
-**Merged pull requests:**
-
-- Remove unused dependency extras [\#55](https://github.com/NeonGeckoCom/skill-personal/pull/55) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [1.0.3a2](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.3a2) (2025-03-11)
-
-[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.3a1...1.0.3a2)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.4a3...1.0.4a4)
 
 **Merged pull requests:**
 
-- Update automation, gitignore, and license notices [\#54](https://github.com/NeonGeckoCom/skill-personal/pull/54) ([NeonDaniel](https://github.com/NeonDaniel))
+- Update dependencies to stable versions [\#62](https://github.com/NeonGeckoCom/skill-personal/pull/62) ([NeonDaniel](https://github.com/NeonDaniel))
 
-## [1.0.3a1](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.3a1) (2024-09-17)
+## [1.0.4a3](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.4a3) (2025-12-04)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.2...1.0.3a1)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.4a2...1.0.4a3)
 
 **Merged pull requests:**
 
-- Update OVOS depdendencies for 0.x compat [\#53](https://github.com/NeonGeckoCom/skill-personal/pull/53) ([NeonDaniel](https://github.com/NeonDaniel))
+- Ukrainian Translation and Tests [\#60](https://github.com/NeonGeckoCom/skill-personal/pull/60) ([NeonDmitry](https://github.com/NeonDmitry))
+
+## [1.0.4a2](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.4a2) (2025-08-30)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.4a1...1.0.4a2)
+
+**Merged pull requests:**
+
+- Implement Skill API method [\#59](https://github.com/NeonGeckoCom/skill-personal/pull/59) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [1.0.4a1](https://github.com/NeonGeckoCom/skill-personal/tree/1.0.4a1) (2025-08-30)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-personal/compare/1.0.3...1.0.4a1)
+
+**Merged pull requests:**
+
+- Refactor into a structure that supports editable installation [\#58](https://github.com/NeonGeckoCom/skill-personal/pull/58) ([NeonDaniel](https://github.com/NeonDaniel))
 
 
 
